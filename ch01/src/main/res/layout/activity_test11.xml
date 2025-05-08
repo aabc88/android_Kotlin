@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".section1_fragment.Test1_1Activity">
+    
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:name="com.example.ch01.section1_fragment.fragment.OneFragment"
+        android:id="@+id/frag_1"
+        />
+    <!-- fragment태그를 이용해 프래그먼트를 출력하는 방식은 예전방식
+    요즘은 FragmentContainerView를 이용해 프래그먼트 출력이 권장됨
+    이용하려면 activity code에서 활요하지 않는다고 해도 id를 추가해야함-->
+    <androidx.fragment.app.FragmentContainerView
+        android:layout_width="match_parent"
+        android:id="@+id/fc_1"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:name="com.example.ch01.section1_fragment.fragment.TwoFragment"
+        />
+
+</LinearLayout>
