@@ -48,4 +48,5 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     implementation("androidx.datastore:datastore-preferences:1.1.4")
+    implementation("androidx.preference:preference-ktx:1.2.1")
 }
