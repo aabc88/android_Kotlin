@@ -23,3 +23,5 @@ rootProject.name = "AndroidLab Kotlin"
 include(":app")
 include(":ch01")
 include(":ch02")
+include(":ch03")
+include(":ch03_outer")
