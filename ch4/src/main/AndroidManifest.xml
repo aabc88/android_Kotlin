@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!-- api level 33부터는 아래의 퍼미션이 선언되어야 noti가 정상실행 된다 -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,9 +12,36 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidLabKotlin">
         <receiver
-            android:name=".section1_broad.MyReceiver"
+            android:name=".section2.MyRemoteInputReceiver"
             android:enabled="true"
             android:exported="true"></receiver>
+
+        <activity
+            android:name=".section2.DetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".section2.Test2_1Activity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".section1_broad.Test1_2Activity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name=".section1_broad.MyReceiver"
+            android:enabled="true"
+            android:exported="true" />
 
         <activity
             android:name=".section1_broad.Test1_1Activity"
