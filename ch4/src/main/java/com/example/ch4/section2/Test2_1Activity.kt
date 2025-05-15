@@ -5,6 +5,7 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.BitmapFactory
 import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
@@ -13,8 +14,10 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.result.contract.ActivityResultContracts.RequestPermission
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
+import androidx.core.app.Person
 import androidx.core.app.RemoteInput
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.IconCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.ch4.R
@@ -104,11 +107,53 @@ class Test2_1Activity : AppCompatActivity() {
         val remoteIntent = Intent(this, MyRemoteInputReceiver::class.java)
         val remotePendingIntent =
             PendingIntent.getBroadcast(this, 30, remoteIntent, PendingIntent.FLAG_MUTABLE)
-        builder.addAction(NotificationCompat.Action.Builder(
-            R.drawable.send, "답장", remotePendingIntent
-        ).addRemoteInput(remoteInput).build())
+        builder.addAction(
+            NotificationCompat.Action.Builder(
+                R.drawable.send, "답장", remotePendingIntent
+            ).addRemoteInput(remoteInput).build()
+        )
         //알림 발생
+
+        /*//big picture style - 알림 눌렀을 때 사진 나오게
+        val bigPicture = BitmapFactory.decodeResource(resources, R.drawable.big)
+        val bigStyle = NotificationCompat.BigPictureStyle()
+        bigStyle.bigPicture(bigPicture)
+        builder.setStyle(bigStyle)*/
+
+        //big text style
+        /*val bigTextStyle = NotificationCompat.BigTextStyle()
+        bigTextStyle.bigText(resources.getString(R.string.big_txt))
+        builder.setStyle(bigTextStyle)*/
+
+        val person1: Person = Person.Builder()
+            .setName("EJ")
+            .setIcon(IconCompat.createWithResource(this,R.drawable.person1))
+            .build()
+
+        val person2: Person = Person.Builder()
+            .setName("EZ")
+            .setIcon(IconCompat.createWithResource(this,R.drawable.person2))
+            .build()
+
+        val message1 = NotificationCompat.MessagingStyle.Message(
+            "hello",
+            System.currentTimeMillis(),
+            person1
+        )
+
+        val message2 = NotificationCompat.MessagingStyle.Message(
+            "hello",
+            System.currentTimeMillis(),
+            person2
+        )
+
+        val messageStyle = NotificationCompat.MessagingStyle(person1)
+            .addMessage(message1)
+            .addMessage(message2)
+        builder.setStyle(messageStyle)
+
         manager.notify(11, builder.build())
+
     }
 
 }
