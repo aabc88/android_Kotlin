@@ -8,22 +8,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidLabKotlin">
-        <service
-            android:name=".MyAIDLService"
+        <provider
+            android:name=".MyContentProvider"
+            android:authorities="com.example.ch6_outer.provider"
             android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.example.ch5_outer.ACTION_SERVICE_AIDL" />
-            </intent-filter>
-        </service>
-        <service
-            android:name=".MyMessengerService"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.example.ch5_outer.ACTION_SERVICE_Messenger" />
-            </intent-filter>
-        </service>
+            android:exported="true"></provider>
 
         <activity
             android:name=".MainActivity"

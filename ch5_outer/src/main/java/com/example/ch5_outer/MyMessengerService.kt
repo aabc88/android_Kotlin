@@ -26,6 +26,8 @@ class MyMessengerService : Service() {
         player.release()
     }
 
+    //2
+    //암시적인텐트로 실행되면 이 함수 실행
     override fun onBind(intent: Intent?): IBinder? {
         messenger = Messenger(IncomingHandler(this))
         return messenger.binder
@@ -34,6 +36,7 @@ class MyMessengerService : Service() {
     inner class IncomingHandler(context: Context) : Handler(Looper.getMainLooper()) {
         override fun handleMessage(msg: Message) {
             when(msg.what) {
+                //5
                 10 -> {
                     //음원 play 요청이라 가정
                     //외부에서 전달한 데이터 중 결과 데이터를 받을 messenger까지도 넘어왔다.
@@ -46,6 +49,7 @@ class MyMessengerService : Service() {
                             val  replyBundle = Bundle()
                             replyBundle.putInt("durantion", player.duration)
                             replyMsg.obj = replyBundle
+                            //6
                             replyMessenger.send(replyMsg)
 
                             player.start()
@@ -54,6 +58,7 @@ class MyMessengerService : Service() {
                         }
                     }
                 }
+                //b
                 20 -> {
                     if (player.isPlaying) player.stop()
                 }

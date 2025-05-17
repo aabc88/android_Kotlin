@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.ch5_outer"
+    namespace = "com.example.ch6"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.ch5_outer"
+        applicationId = "com.example.ch6"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -31,11 +31,6 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-
-    buildFeatures {
-        aidl = true
-    }
-
     kotlinOptions {
         jvmTarget = "11"
     }

@@ -4,16 +4,15 @@ plugins {
 }
 
 android {
-    namespace = "com.example.ch5_outer"
+    namespace = "com.example.ch6_outer"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.ch5_outer"
+        applicationId = "com.example.ch6_outer"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
-        viewBinding.isEnabled = true
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -31,11 +30,6 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-
-    buildFeatures {
-        aidl = true
-    }
-
     kotlinOptions {
         jvmTarget = "11"
     }
