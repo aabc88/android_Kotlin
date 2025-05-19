@@ -11,6 +11,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidLabKotlin">
+        <meta-data android:name="com.google.android.map2.v2.API_KEY"
+            android:value="AIzaSyAn3IvD9RzxHuMMF_k7A0Yq4ZLECpBmYi8"/>
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
+
+        <activity
+            android:name=".section3.Test3_1Activity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".section2.Test2_1Activity"
             android:exported="true">
